@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block title %} Hello, Django3! {% endblock %}
+{% block content %}
+    <style>
+        table{
+            width:700px;
+            margin-top: 120px;
+            border: 1px solid black;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        th{
+            border: 1px solid black;
+            padding:5px;
+            /*border-collapse: collapse;*/
+        }
+        td{
+            padding:5px;
+            border: 1px solid black;
+        }
+        a:link{text-decoration: none}
+        a:hover {color: green}
+
+        #page {
+            width:600px;
+            /*border: 1px solid black;*/
+            margin:0 auto;
+            text-align: center;
+        }
+
+        #page li{
+            width: 40px;
+            margin-right:1px;
+            /*border: 1px solid black;*/
+        }
+
+        #page li:hover{font-weight: bold;
+        font-size:20px;
+        color: red}
+
+        #tb1 tr:hover {background: lightpink;
+        }
+
+         #tb1{text-align: center;
+
+         }
+
+         /*#btn{text-align: left;}*/
+
+
+         td:nth-child(2) {
+             table-layout: fixed;
+             text-align: left;
+             white-space: nowrap;
+             overflow: hidden;
+             text-overflow: ellipsis;
+
+         }
+
+         #button {
+             margin-left: 90px;
+             margin-bottom: 10px;
+             position:relative;
+             top:20px
+         }
+
+    </style>
+
+<div id="main">
+         <h3>board</h3>
+    <div style="margin-top:50px; margin-left:260px">
+        <table id="tb1" >
+            <colgroup>
+                <col style="width: 10%">
+                <col style="">
+                <col style="width: 15%">
+                <col style="width: 15%">
+                <col style="width: 10%">
+            </colgroup>
+
+
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><a href="view.html?bno=1">
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</a></td>
+                <td>zzyzzy</td>
+                <td>2022-05-27</td>
+                <td>756</td>
+
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
+                <td>zzyzzy</td>
+                <td>2022-05-27</td>
+                <td>756</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="name">시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
+                <td>zzyzzy</td>
+                <td>2022-05-27</td>
+                <td>756</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="name">시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
+                <td>zzyzzy</td>
+                <td>2022-05-27</td>
+                <td>756</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td class="name">시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
+                <td>zzyzzy</td>
+                <td>2022-05-27</td>
+                <td>756</td>
+            </tr>
+        </table>
+        <div id="button">
+        <button type="button" onclick="location.href='write.html'">글쓰기</button>
+        </div>
+        </div><br>
+        <ul id="page">
+                <li>이전</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>다음</li>
+            </ul>
+    </div>
+{% endblock %}

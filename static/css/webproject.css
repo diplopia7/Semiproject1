@@ -1,0 +1,62 @@
+a:link{text-decoration: none}
+a:hover {color: green}
+a {font-weight: bold}
+input:hover{background: lightblue}
+input:focus{background: lightblue}
+button[type='submit'] {background: blue; color: white; border: none;padding: 5px;}
+button[type='submit']:hover{background: darkblue}
+button[type='reset'] {background: red; color: white; border: none; padding: 5px}
+button[type='reset']:hover{background: darkred}
+
+footer{
+            text-align: center;
+        }
+#main{
+    height: auto;
+    min-height: 500px;
+    }
+input{
+    margin-left: 20px;
+    }
+
+form {margin:0 auto;
+            width: 500px;
+        }
+
+#main div {margin:0 auto;
+            width: 500px;
+        }
+
+form div {
+/*width: 500px;*/
+    margin:0 auto
+}
+form label {display:inline-block;
+    width:120px;
+text-align: right;
+font-weight: bold}
+
+div span {margin-left: 20px}
+
+
+
+form button:first-child {
+    margin-left: 145px}
+
+#wrap {width: 1250px;
+margin: auto}
+
+ul{list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-left: 50px}
+
+li {
+    display: inline-block;
+    margin-right: 80px;
+    margin-top:20px;
+    width: 150px;
+    text-align: center;
+
+}
+
