@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %} Hello, Django3! {% endblock %}
+{% block content %}
+    <style>
+        #label1 {
+            /*border: 1px solid black;*/
+            position: relative;
+            right:150px;
+            top:20px;
+        }
+
+        #label2 {
+            position: relative;
+            right:145px;
+            top:33px;
+        }
+
+        #label3 {
+            position: relative;
+            right:145px;
+            top:33px;
+        }
+
+        #title {
+            position: relative;
+            top:33px;
+            right:140px;
+        }
+
+        button {
+            margin-top:30px;
+            margin-bottom: 30px;
+        }
+
+
+
+    </style>
+
+<div id="main">
+         <h3>게시판 새 글쓰기</h3>
+    <div style="margin-top: 50px">
+        <form name="board" method="post" action="board.do">
+        <div>
+            <label id="label3" for="title">제 목</label>
+            <input type="text" name="title" id="title">
+            </div><br>
+            <div style="display: inline-block">
+                <label id="label2">작성자</label>
+                <span style="position: relative; top:33px; right:140px">siegstageek</span>
+            </div>
+            <div style="position: relative;top:30px;margin: 5px">
+                <label id="label1" for="article">본 문</label>
+                <textarea name="article" id="article"
+                          rows="20" cols="70" style="resize: none"></textarea>
+            </div>
+            </form><br>
+        </div>
+        <label style="margin: 10px"></label>
+        <button id="submit" style="margin-left:740px" type="submit">입력완료</button>
+        <button id="reset" type="reset" onclick="">다시입력</button>
+        </div><br>
+{% endblock %}

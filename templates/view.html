@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block title %} Hello, Django3! {% endblock %}
+{% block content %}
+    <style>
+        table{
+            width : 600px;
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-left: -80px;
+        }
+        th{
+            /*border: 1px solid black;*/
+            /*border-collapse: collapse;*/
+        }
+        td{
+            /*border: 1px solid black;*/
+        }
+        a:link{text-decoration: none}
+        a:hover {color: green}
+
+        #page {
+            width:600px;
+            /*border: 1px solid black;*/
+            margin:0 auto;
+            text-align: center;
+        }
+
+        #page li{
+            width: 40px;
+            margin-right:1px;
+            /*border: 1px solid black;*/
+        }
+
+        #page li:hover{font-weight: bold;
+        font-size:20px;
+        color: red}
+
+        #view {
+            border: none;
+
+        }
+
+        #view th {
+            /*border: 1px solid black;*/
+            width:60px;
+            text-align: right;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            vertical-align:top;
+        }
+
+        #view td{
+            width:200px;
+            /*border: 1px solid black;*/
+            padding-left: 5px;
+            padding-bottom: 5px;
+        }
+
+        #td1 {
+            border:1px solid gold;
+            table-layout: fixed;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        td div{
+            border: 1px solid gold;
+            height: 200px;
+            overflow: auto;
+        }
+
+
+
+    </style>
+
+<div id="main">
+         <h3>게시판 본문글</h3>
+    <div style="margin-top: 50px">
+        <table id="view">
+            <tr>
+                <th>제 목</th>
+                <td>시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td>siegstageek</td>
+            </tr>
+            <tr>
+                <th>작성일</th>
+                <td>2014-05-05 12:45:05(777)</td>
+            </tr>
+            <tr>
+                <th>본 문</th>
+                <td>
+                    <div style="margin-left: -3px">
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
+                        </div>
+                </td>
+            </tr>
+        </table><br>
+        <button type="button" onclick="location.href='/list'">목록으로 이동</button>
+        <button type="button" onclick="location.href='/write'">글쓰기</button>
+        <button type="button">수정하기</button>
+        <button type="button">삭제하기</button>
+        <ul id="page">
+                <li>이전</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>다음</li>
+            </ul>
+        </div><br>
+    </div>
+{% endblock %}
