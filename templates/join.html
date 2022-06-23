@@ -3,10 +3,12 @@
 {% block content %}
 <div id="main">
     <h3>회원가입</h3>
-        <form name="register" method="post" enctype="multipart/form-data" action="register.do">
+        <form id="register" name="register" method="post">
+            <div style="color:red">{{ error|safe }}</div>
+            {% csrf_token %}
         <div style="margin-top: 50px">
             <label for="id">아이디</label>
-            <input type="text" name="id" id="id"><br>
+            <input type="text" name="id" id="id" value="{{ form.id }}"><br>
             </div><br>
         <div>
             <label for="password">비밀번호</label>
@@ -14,21 +16,63 @@
             </div><br>
         <div>
             <label for="check_password">비밀번호 확인</label>
-            <input type="text" name="check_password" id="check_password"><br>
+            <input type="password" name="check_password" id="check_password"><br>
             </div><br>
         <div>
             <label for="name">이 름</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" value="{{ form.name }}">
         </div><br>
             <div>
             <label for="email">이메일</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" value="{{ form.email }}">
         </div><br>
         <div>
 <!--            <label></label>-->
-            <button type="submit">입력완료</button>
-            <button type="reset">다시입력</button>
+            <button id="joinbtn" type="submit">입력완료</button>
+            <button id="resetbtn" type="reset">다시입력</button>
         </div>
     </form>
 </div>
+
+{#<script>#}
+{#    const register = document.querySelector("#register")#}
+{#    register.addEventListener('submit',(e)=>{#}
+{#        let id = document.register.id#}
+{#        let password = document.register.password#}
+{#        let check_password = document.register.check_password#}
+{#        let name = document.register.name#}
+{#        let email = document.register.email#}
+{##}
+{#        if(id.value == ''){#}
+{#            alert('아이디를 입력하세요')#}
+{#            id.focus()#}
+{#            e.preventDefault()#}
+{#        }#}
+{#        else if(password.value == ''){#}
+{#            alert('비밀번호를 입력하세요')#}
+{#            password.focus()#}
+{#            e.preventDefault()#}
+{#        }#}
+{#         else if(check_password.value == ''){#}
+{#            alert('비밀번호 확인을 입력하세요')#}
+{#            check_password.focus()#}
+{#            e.preventDefault()#}
+{#        }#}
+{#         else if(name.value == ''){#}
+{#            alert('이름을 입력하세요')#}
+{#            name.focus()#}
+{#            e.preventDefault()#}
+{#        }#}
+{#         else if(email.value == ''){#}
+{#            alert('이메일을 입력하세요')#}
+{#            email.focus()#}
+{#            e.preventDefault()#}
+{#        }#}
+{#         else if(password.value != check_password.value){#}
+{#             alert('비밀번호가 일치하지 않습니다.')#}
+{#            check_password.focus()#}
+{#            e.preventDefault()#}
+{#        }#}
+{#    })#}
+{#</script>#}
 {% endblock %}
