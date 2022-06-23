@@ -1,6 +1,5 @@
-from django.contrib.auth.hashers import make_password
-from django.shortcuts import render
-
+from django.contrib.auth.hashers import make_password, check_password
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from member.models import Member
@@ -36,7 +35,48 @@ def join(request):
 
 
 def login(request):
-    return render(request, 'login.html')
+    returnPage = 'login.html'
+
+    if request.method == 'GET':
+        return render(request,returnPage)
+
+    elif request.method == 'POST':
+        form = request.POST.dict()
+
+        error=''
+        if not (form['userid'] and form['password']):
+            error = '입력 오류'
+        else:
+            try:
+                member = Member.objects.get(userid=form['userid'])
+            except Member.DoesNotExist:
+                member = None
+
+            if member and check_password(form['password'],member.passwd):
+                request.session['userid']=form['userid']
+
+                return redirect('/')
+            else:
+                error = '아이디나 비밀번호가 틀립니다.'
+
+        context={'error':error}
+
+        return render(request,returnPage,context)
 
 def myinfo(request):
-    return render(request, 'myinfo.html')
+    member={}
+
+
+    if request.session.get('userid'):
+        userid = request.session.get('userid')
+        member=Member.objects.get(userid=userid)
+
+    context={'member':member}
+    return render(request, 'myinfo.html',context)
+
+
+def logout(request):
+    if request.session.get('userid'):
+        del(request.session['userid'])
+
+    return redirect('/')

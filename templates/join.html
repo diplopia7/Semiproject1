@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {# Django template languate #}
 {# 템플릿 변수, 템플릿 태그, 템플릿 필터, 템플릿 코멘트 #}
 {# 템플릿 변수 : {{ 변수명 or 객체명.속성명 }} #}
@@ -5,9 +6,13 @@
 {# 템플릿 필터 : 변수의 값을 특정한 형식으로 변경 {{ 변수명|필터명 }} #}
 {# 템플릿 코멘트 : {% comment %} 주석 {% endcomment %} #}
 
-{% extends 'base.html' %}
 {% block title %} Hello, Django3! {% endblock %}
 {% block content %}
+{% if request.session.userid %}
+    <script>
+        location.href='/'
+    </script>
+{% endif %}
 <div id="main">
     <h3>회원가입</h3>
         <form id="register" name="register" method="post">
@@ -41,45 +46,47 @@
     </form>
 </div>
 
-{#<script>#}
-{#    const register = document.querySelector("#register")#}
-{#    register.addEventListener('submit',(e)=>{#}
-{#        let id = document.register.id#}
-{#        let password = document.register.password#}
-{#        let check_password = document.register.check_password#}
-{#        let name = document.register.name#}
-{#        let email = document.register.email#}
-{##}
-{#        if(id.value == ''){#}
-{#            alert('아이디를 입력하세요')#}
-{#            id.focus()#}
-{#            e.preventDefault()#}
-{#        }#}
-{#        else if(password.value == ''){#}
-{#            alert('비밀번호를 입력하세요')#}
-{#            password.focus()#}
-{#            e.preventDefault()#}
-{#        }#}
-{#         else if(check_password.value == ''){#}
-{#            alert('비밀번호 확인을 입력하세요')#}
-{#            check_password.focus()#}
-{#            e.preventDefault()#}
-{#        }#}
-{#         else if(name.value == ''){#}
-{#            alert('이름을 입력하세요')#}
-{#            name.focus()#}
-{#            e.preventDefault()#}
-{#        }#}
-{#         else if(email.value == ''){#}
-{#            alert('이메일을 입력하세요')#}
-{#            email.focus()#}
-{#            e.preventDefault()#}
-{#        }#}
-{#         else if(password.value != check_password.value){#}
-{#             alert('비밀번호가 일치하지 않습니다.')#}
-{#            check_password.focus()#}
-{#            e.preventDefault()#}
-{#        }#}
-{#    })#}
-{#</script>#}
+{% comment %}
+<script>
+    const register = document.querySelector("#register")
+    register.addEventListener('submit',(e)=>{
+        let id = document.register.id
+        let password = document.register.password
+        let check_password = document.register.check_password
+        let name = document.register.name
+        let email = document.register.email
+
+        if(id.value == ''){
+            alert('아이디를 입력하세요')
+            id.focus()
+            e.preventDefault()
+        }
+        else if(password.value == ''){
+            alert('비밀번호를 입력하세요')
+            password.focus()
+            e.preventDefault()
+        }
+         else if(check_password.value == ''){
+            alert('비밀번호 확인을 입력하세요')
+            check_password.focus()
+            e.preventDefault()
+        }
+         else if(name.value == ''){
+            alert('이름을 입력하세요')
+            name.focus()
+            e.preventDefault()
+        }
+         else if(email.value == ''){
+            alert('이메일을 입력하세요')
+            email.focus()
+            e.preventDefault()
+        }
+         else if(password.value != check_password.value){
+             alert('비밀번호가 일치하지 않습니다.')
+            check_password.focus()
+            e.preventDefault()
+        }
+    })
+</script>
+{% endcomment %}
 {% endblock %}
