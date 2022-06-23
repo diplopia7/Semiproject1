@@ -22,7 +22,7 @@ def join(request):
         else:
             member = Member(
                 userid=form['id'],
-                password=make_password(form['password']),
+                passwd=make_password(form['password']),
                 name=form['name'],
                 email=form['email']
             )

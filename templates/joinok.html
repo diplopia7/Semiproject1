@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Hello, Django3! {% endblock %}
+{% block content %}
+<div id="main">
+     <h2>회원가입완료</h2>
+     <h3>아이디 : {{ form.id }}</h3>
+     <h3>이름 : {{ form.name }}</h3>
+     <h3>이메일 : {{ form.email }}</h3>
+<hr>
+<div>
+    <a href="/login">로그인</a>
+    </div>
+</div>
+
+{% endblock %}
