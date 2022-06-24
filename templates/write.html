@@ -39,7 +39,9 @@
 <div id="main">
          <h3>게시판 새 글쓰기</h3>
     <div style="margin-top: 50px">
-        <form name="board" method="post">
+        <form id="boardfrm" name="boardfrm" method="post">
+            {% csrf_token %}
+            {{ error }}
         <div>
             <label id="label3" for="title">제 목</label>
             <input type="text" name="title" id="title">
@@ -53,10 +55,31 @@
                 <textarea name="article" id="article"
                           rows="20" cols="70" style="resize: none"></textarea>
             </div>
-            </form><br>
-        </div>
         <label style="margin: 10px"></label>
-        <button id="submit" style="margin-left:740px" type="submit">입력완료</button>
+        <button id="boardbtn" type="button">입력완료</button>
         <button id="reset" type="reset" onclick="">다시입력</button>
-        </div><br>
+            <input type="hidden" name="userid" value="asdf">
+        </form><br>
+    </div><br>
+</div>
+<script>
+    const boardbtn = document.querySelector('#boardbtn')
+    boardbtn.addEventListener('click',()=>{
+        const title = document.boardfrm.title
+        const contents = document.boardfrm.article
+        if (title.value=='') {
+            alert('제목을 작성하세요')
+            title.focus()
+            return
+        }
+        else if (contents.value=='') {
+            alert('본문을 작성하세요')
+            contents.focus()
+            return
+        }
+        else{document.boardfrm.submit()}
+    })
+
+</script>
+
 {% endblock %}
