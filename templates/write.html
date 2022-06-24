@@ -58,7 +58,7 @@
         <label style="margin: 10px"></label>
         <button id="boardbtn" type="button">입력완료</button>
         <button id="reset" type="reset" onclick="">다시입력</button>
-            <input type="hidden" name="userid" value="asdf">
+            <input type="hidden" name="memberid" value="{{ request.session.userid_id }}">
         </form><br>
     </div><br>
 </div>

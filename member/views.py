@@ -55,6 +55,10 @@ def login(request):
             if member and check_password(form['password'],member.passwd):
                 request.session['userid']=form['userid']
 
+                id=Member.objects.all().filter(userid=form['userid']).values_list('id')[0][0]
+                request.session['userid_id']=id
+                print(id)
+
                 return redirect('/')
             else:
                 error = '아이디나 비밀번호가 틀립니다.'

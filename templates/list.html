@@ -67,7 +67,7 @@
     </style>
 
 <div id="main">
-         <h3>board</h3>
+         <h3>게시판</h3>
     <div style="margin-top:50px; margin-left:260px">
         <table id="tb1" >
             <colgroup>
@@ -86,43 +86,19 @@
                 <th>작성일</th>
                 <th>조회</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td><a href="/view">
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</a></td>
-                <td>zzyzzy</td>
-                <td>2022-05-27</td>
-                <td>756</td>
 
-            </tr>
+            {#  #}
+            {% for b in bds %}
             <tr>
-                <td>2</td>
-                <td>시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
-                <td>zzyzzy</td>
-                <td>2022-05-27</td>
-                <td>756</td>
+                <td>{{ b.id }}</td>
+                <td><a href="/view?bno={{ b.id }}">
+                    {{ b.title }}</a></td>
+                <td>{{ b.userid }}</td>
+                <td>{{ b.regdate|date:'Y-m-d' }}</td>
+                <td>{{ b.views }}</td>
             </tr>
-            <tr>
-                <td>3</td>
-                <td class="name">시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
-                <td>zzyzzy</td>
-                <td>2022-05-27</td>
-                <td>756</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td class="name">시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
-                <td>zzyzzy</td>
-                <td>2022-05-27</td>
-                <td>756</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td class="name">시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
-                <td>zzyzzy</td>
-                <td>2022-05-27</td>
-                <td>756</td>
-            </tr>
+            {% endfor %}
+
         </table>
         <div id="button">
         <button type="button" onclick="location.href='/write'">글쓰기</button>
