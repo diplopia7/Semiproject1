@@ -93,7 +93,8 @@
                 <td>{{ b.id }}</td>
                 <td><a href="/view?bno={{ b.id }}">
                     {{ b.title }}</a></td>
-                <td>{{ b.userid }}</td>
+{#                <td>{{ request.session.userid }}</td>#}
+                <td>{{ b.member.userid }}</td>
                 <td>{{ b.regdate|date:'Y-m-d' }}</td>
                 <td>{{ b.views }}</td>
             </tr>
@@ -116,4 +117,17 @@
                 <li>다음</li>
             </ul>
     </div>
+    <script>
+        {#const bditems = document.getElementsByTagName('td')#}
+        {#const bdcnt={{ bds.count }}#}
+        {##}
+        {#for(i=bdcnt, pos=1;i>0;--i,pos=pos+5){#}
+        {#    bditems[pos].innerHTML=i#}
+
+
+        {#document.write(bditems.length,'<br>')#}
+        {#document.write(bditems[0].innerHTML,'<br>')#}
+        {#document.write(bditems[5].innerHTML,'<br>')#}
+        {#document.write(bdcnt,'<br>')#}
+    </script>
 {% endblock %}

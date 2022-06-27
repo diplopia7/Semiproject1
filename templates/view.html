@@ -79,52 +79,33 @@
         <table id="view">
             <tr>
                 <th>제 목</th>
-                <td>시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!</td>
+                <td>{{ bd.title }}</td>
             </tr>
             <tr>
                 <th>작성자</th>
-                <td>siegstageek</td>
+                <td>{{ bd.member.userid }}</td>
             </tr>
             <tr>
                 <th>작성일</th>
-                <td>2014-05-05 12:45:05(777)</td>
+                <td>{{ bd.regdate|date:'Y-m-d-H:i:s' }}</td>
             </tr>
+             <tr>
+                <th>조회수</th>
+                 <td>{{ bd.views}}</td>
             <tr>
                 <th>본 문</th>
                 <td>
-                    <div style="margin-left: -3px">
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                    시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구!
-                        </div>
+                    <div class="box" style="margin-left: 3px;">{{ bd.contents }}</div>
                 </td>
             </tr>
         </table><br>
+        <form name="board">
+            <input type="hidden" name="bno" value="{{ bd.id }}">
+        </form>
         <button type="button" onclick="location.href='/list'">목록으로 이동</button>
         <button type="button" onclick="location.href='/write'">글쓰기</button>
-        <button type="button">수정하기</button>
-        <button type="button">삭제하기</button>
+        <button type="button" id="mdfbtn">수정하기</button>
+        <button type="button" id="rmvbtn">삭제하기</button>
         <ul id="page">
                 <li>이전</li>
                 <li>1</li>
@@ -137,5 +118,25 @@
                 <li>다음</li>
             </ul>
         </div><br>
-    </div>
+</div>
+<script>
+    const contents = document.querySelector('.box')
+    const bno=document.board.bno.value
+
+    contents.setAttribute('style','white-space: pre')
+
+
+    mdfbtn=document.getElementById('mdfbtn')
+    mdfbtn.addEventListener('click',()=>{
+        if(confirm('정말로 수정하시겠습니까?')){
+            location.href='/modify?bno='+ bno
+        }
+    })
+    rmvbtn=document.getElementById('rmvbtn')
+    rmvbtn.addEventListener('click',()=>{
+        if(confirm('정말로 삭제하시겠습니까?')){
+            location.href='/remove?bno='+ bno
+        }
+    })
+</script>
 {% endblock %}

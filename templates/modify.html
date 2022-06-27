@@ -37,34 +37,34 @@
     </style>
 
 <div id="main">
-         <h3>게시판 새 글쓰기</h3>
+         <h3>게시판 글 수정하기</h3>
     <div style="margin-top: 50px">
         <form id="boardfrm" name="boardfrm" method="post">
             {% csrf_token %}
             {{ error }}
         <div>
             <label id="label3" for="title">제 목</label>
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" value="{{ bd.title }}">
             </div><br>
             <div style="display: inline-block">
                 <label id="label2">작성자</label>
-                <span style="position: relative; top:33px; right:140px">{{ request.session.userid }}</span>
+                <span style="position: relative; top:33px; right:140px">{{ bd.member.userid }}</span>
             </div>
             <div style="position: relative;top:30px;margin: 5px">
                 <label id="label1" for="article">본 문</label>
                 <textarea name="article" id="article"
-                          rows="20" cols="70" style="resize: none"></textarea>
+                          rows="20" cols="70" style="resize: none">{{ bd.contents }}</textarea>
             </div>
         <label style="margin: 10px"></label>
-        <button id="boardbtn" type="button">입력완료</button>
+        <button id="mdfokbtn" type="button">수정완료</button>
         <button id="reset" type="reset" onclick="">다시입력</button>
-            <input type="hidden" name="memberid" value="{{ request.session.userid_id }}">
+            <input type="hidden" name="bno" value="{{ bd.id }}">
         </form><br>
     </div><br>
 </div>
 <script>
-    const boardbtn = document.querySelector('#boardbtn')
-    boardbtn.addEventListener('click',()=>{
+    const mdfokbtn = document.querySelector('#mdfokbtn')
+    mdfokbtn.addEventListener('click',()=>{
         const title = document.boardfrm.title
         const contents = document.boardfrm.article
         if (title.value=='') {
